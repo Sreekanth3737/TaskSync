@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "./Sidebar.module.scss";
 
 interface SidebarProps {
@@ -23,21 +24,44 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, closeSidebar }) => {
       <nav>
         <ul>
           <li>
-            <a href="#" className={styles.active}>
-              📋 Dashboard
-            </a>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+            >
+              ✅ Tasks
+            </NavLink>
           </li>
           <li>
-            <a href="#">✅ Tasks</a>
+            <NavLink
+              to="/calendar"
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+            >
+              📅 Calendar
+            </NavLink>
           </li>
           <li>
-            <a href="#">📅 Calendar</a>
+            <NavLink
+              to="/reports"
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+            >
+              📊 Reports
+            </NavLink>
           </li>
           <li>
-            <a href="#">📊 Reports</a>
-          </li>
-          <li>
-            <a href="#">⚙️ Settings</a>
+            <NavLink
+              to="/settings"
+              className={({ isActive }) =>
+                isActive ? styles.active : undefined
+              }
+            >
+              ⚙️ Settings
+            </NavLink>
           </li>
         </ul>
       </nav>
