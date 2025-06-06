@@ -5,6 +5,7 @@ const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const subscriptionRoutes = require("./routes/subscriptionRoutes");
 const { checkTasksAndNotify } = require("./services/notificationService");
+require("./corn/clearExpiredTokens");
 const cors = require("cors");
 
 dotenv.config();

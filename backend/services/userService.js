@@ -1,4 +1,5 @@
 const User = require("../models/userModel");
+const Blacklist = require("../models/blacklistModel");
 const jwt = require("jsonwebtoken");
 
 const generateToken = (id) =>
@@ -29,4 +30,18 @@ exports.loginUser = async ({ email, password }) => {
     role: user.role,
     token: generateToken(user._id),
   };
+};
+
+exports.logoutUser = async (token) => {
+  const decoded = jwt.decode(token);
+
+  if (!decoded || !decoded.exp) {
+    throw new Error("Invalid token");
+  }
+
+  const expiresIn = decoded.exp - Math.floor(Date.now() / 1000);
+  const expiresAt = new Date(Date.now() + expiresIn * 1000);
+
+  // Save the token to the blacklist
+  await Blacklist.create({ token, expiresAt });
 };

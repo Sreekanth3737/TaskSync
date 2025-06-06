@@ -18,3 +18,19 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+
+exports.logoutUser = async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(400).json({ message: "No token provided" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    await userService.logoutUser(token);
+
+    res.status(200).json({ message: "User logged out successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Logout failed", error: err.message });
+  }
+};
