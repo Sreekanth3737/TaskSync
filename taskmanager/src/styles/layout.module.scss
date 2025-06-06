@@ -1,0 +1,76 @@
+// layout.module.scss
+@import "../styles/variables.scss";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+.dashboardLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  @include respond-to(md) {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 100vh;
+  }
+}
+
+.mainContainer {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mainContent {
+  background-color: $light-color;
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+
+  @include respond-to(md) {
+    height: calc(100vh - 60px);
+  }
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sidebarClosed {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  @include respond-to(md) {
+    display: none !important;
+  }
+}

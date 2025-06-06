@@ -1,0 +1,39 @@
+# Node.js dependencies
+backend/node_modules/
+taskmanager/node_modules/
+
+# Environment files
+backend/.env
+taskmanager/.env
+
+# Build and output files
+taskmanager/build/
+taskmanager/dist/
+taskmanager/dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Miscellaneous
+*.local
+*.lock

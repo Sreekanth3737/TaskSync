@@ -1,0 +1,41 @@
+// _variables.scss
+$primary-color: #4a6fdc;
+$primary-light: #eef2ff;
+$primary-dark: #2c4bbd;
+
+$secondary-color: #6c757d;
+$secondary-light: #e9ecef;
+
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+
+$dark-color: #2c3e50;
+$light-color: #f8f9fa;
+$white: #ffffff;
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+$border-radius: 6px;
+$border-color: #e0e0e0;
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}

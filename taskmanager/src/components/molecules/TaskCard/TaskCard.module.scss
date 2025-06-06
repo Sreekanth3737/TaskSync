@@ -1,0 +1,36 @@
+.taskCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.description {
+  margin: 0.5em 0 0.5em 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.footer {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
